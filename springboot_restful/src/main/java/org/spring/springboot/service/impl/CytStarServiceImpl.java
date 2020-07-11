@@ -1,6 +1,6 @@
 package org.spring.springboot.service.impl;
 
-import org.spring.springboot.dao.CytStarDao;
+import org.spring.springboot.dao.ArticlesMapper;
 import org.spring.springboot.model.Articles;
 import org.spring.springboot.model.Person;
 import org.spring.springboot.service.CytStarService;
@@ -12,17 +12,12 @@ import java.util.List;
 @Service
 public class CytStarServiceImpl implements CytStarService {
 
-
-    private CytStarDao cytStarDao;
-
     @Autowired
-    public CytStarServiceImpl(CytStarDao cytStarDao) {
-        this.cytStarDao = cytStarDao;
-    }
+    private ArticlesMapper articlesMapper;
 
     @Override
-    public Articles selectByPrimaryKey(Integer id) {
-        return cytStarDao.selectByPrimaryKey(id);
+    public Articles selectArticlePrimaryKey(Integer id) {
+        return articlesMapper.selectByPrimaryKey(id);
     }
 
 }
