@@ -9,12 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * 业务逻辑实现层
- *
- * @author WJ
- * @date 2018/04/22
- */
 @Service
 public class CytStarServiceImpl implements CytStarService {
 
