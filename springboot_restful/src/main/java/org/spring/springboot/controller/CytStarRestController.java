@@ -18,8 +18,12 @@ import java.util.List;
 @RestController
 public class CytStarRestController {
 
-    @Autowired
     private CytStarService cytStarService;
+
+    @Autowired
+    public CytStarRestController(CytStarService cytStarService) {
+        this.cytStarService = cytStarService;
+    };
 
     @RequestMapping(value = "/api/person" ,method = RequestMethod.GET)
     public Articles selectByPrimaryKey(Integer id){

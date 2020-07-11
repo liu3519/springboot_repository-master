@@ -27,4 +27,5 @@ public class Articles {
     * 文章内容哦
     */
     private String article;
+
 }

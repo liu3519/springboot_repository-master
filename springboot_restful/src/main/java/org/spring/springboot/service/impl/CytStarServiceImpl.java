@@ -18,8 +18,13 @@ import java.util.List;
 @Service
 public class CytStarServiceImpl implements CytStarService {
 
-    @Autowired
+
     private CytStarDao cytStarDao;
+
+    @Autowired
+    public CytStarServiceImpl(CytStarDao cytStarDao) {
+        this.cytStarDao = cytStarDao;
+    }
 
     @Override
     public Articles selectByPrimaryKey(Integer id) {

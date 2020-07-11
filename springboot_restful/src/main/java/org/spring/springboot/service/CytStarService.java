@@ -13,6 +13,5 @@ import java.util.List;
  */
 public interface CytStarService {
 
-
     Articles selectByPrimaryKey(Integer id);
 }
