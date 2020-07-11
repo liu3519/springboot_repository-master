@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.spring.springboot.mapper.GoodsMapper">
+  <resultMap id="BaseResultMap" type="org.spring.springboot.model.Goods">
+    <!--@mbg.generated-->
+    <!--@Table goods-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name_id" jdbcType="INTEGER" property="nameId" />
+    <result column="goods" jdbcType="VARCHAR" property="goods" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="file_path" jdbcType="VARCHAR" property="filePath" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, name_id, goods, price, file_path
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.spring.springboot.model.Goods">
+    <!--@mbg.generated-->
+    insert into goods (id, name_id, goods, 
+      price, file_path)
+    values (#{id,jdbcType=INTEGER}, #{nameId,jdbcType=INTEGER}, #{goods,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{filePath,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.spring.springboot.model.Goods">
+    <!--@mbg.generated-->
+    insert into goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="nameId != null">
+        name_id,
+      </if>
+      <if test="goods != null">
+        goods,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="filePath != null">
+        file_path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="nameId != null">
+        #{nameId,jdbcType=INTEGER},
+      </if>
+      <if test="goods != null">
+        #{goods,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="filePath != null">
+        #{filePath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.spring.springboot.model.Goods">
+    <!--@mbg.generated-->
+    update goods
+    <set>
+      <if test="nameId != null">
+        name_id = #{nameId,jdbcType=INTEGER},
+      </if>
+      <if test="goods != null">
+        goods = #{goods,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="filePath != null">
+        file_path = #{filePath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.spring.springboot.model.Goods">
+    <!--@mbg.generated-->
+    update goods
+    set name_id = #{nameId,jdbcType=INTEGER},
+      goods = #{goods,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      file_path = #{filePath,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

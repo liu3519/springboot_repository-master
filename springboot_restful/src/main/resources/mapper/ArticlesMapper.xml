@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.spring.springboot.mapper.ArticlesMapper">
+  <resultMap id="BaseResultMap" type="org.spring.springboot.model.Articles">
+    <!--@mbg.generated-->
+    <!--@Table articles-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name_id" jdbcType="INTEGER" property="nameId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="article" jdbcType="VARCHAR" property="article" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, name_id, title, article
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from articles
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from articles
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.spring.springboot.model.Articles">
+    <!--@mbg.generated-->
+    insert into articles (id, name_id, title, 
+      article)
+    values (#{id,jdbcType=INTEGER}, #{nameId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{article,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.spring.springboot.model.Articles">
+    <!--@mbg.generated-->
+    insert into articles
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="nameId != null">
+        name_id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="article != null">
+        article,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="nameId != null">
+        #{nameId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="article != null">
+        #{article,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.spring.springboot.model.Articles">
+    <!--@mbg.generated-->
+    update articles
+    <set>
+      <if test="nameId != null">
+        name_id = #{nameId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="article != null">
+        article = #{article,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.spring.springboot.model.Articles">
+    <!--@mbg.generated-->
+    update articles
+    set name_id = #{nameId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      article = #{article,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

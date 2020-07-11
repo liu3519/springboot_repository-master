@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.spring.springboot.mapper.GoodTagsMapper">
+  <resultMap id="BaseResultMap" type="org.spring.springboot.model.GoodTags">
+    <!--@mbg.generated-->
+    <!--@Table good_tags-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="good_id" jdbcType="INTEGER" property="goodId" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, good_id, tag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from good_tags
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from good_tags
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.spring.springboot.model.GoodTags" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into good_tags (good_id, tag)
+    values (#{goodId,jdbcType=INTEGER}, #{tag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.spring.springboot.model.GoodTags" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into good_tags
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodId != null">
+        good_id,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodId != null">
+        #{goodId,jdbcType=INTEGER},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.spring.springboot.model.GoodTags">
+    <!--@mbg.generated-->
+    update good_tags
+    <set>
+      <if test="goodId != null">
+        good_id = #{goodId,jdbcType=INTEGER},
+      </if>
+      <if test="tag != null">
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.spring.springboot.model.GoodTags">
+    <!--@mbg.generated-->
+    update good_tags
+    set good_id = #{goodId,jdbcType=INTEGER},
+      tag = #{tag,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
