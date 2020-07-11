@@ -7,8 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class CytStarDaoImpl implements CytStarDao {
 
-    @Autowired
+
     ArticlesMapper articlesMapper;
+
+    @Autowired
+    private CytStarDaoImpl(ArticlesMapper articlesMapper) {
+        this.articlesMapper = articlesMapper;
+    }
 
     @Override
     public Articles selectByPrimaryKey(Integer id) {

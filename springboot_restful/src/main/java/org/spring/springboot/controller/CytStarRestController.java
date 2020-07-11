@@ -25,7 +25,7 @@ public class CytStarRestController {
         this.cytStarService = cytStarService;
     };
 
-    @RequestMapping(value = "/api/person" ,method = RequestMethod.GET)
+    @RequestMapping(value = "/api/select" ,method = RequestMethod.GET)
     public Articles selectByPrimaryKey(Integer id){
         return cytStarService.selectByPrimaryKey(id);
     }
