@@ -7,14 +7,14 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Name {
-    /**
-    * 自增ID，什么都不用动
-    */
+public class Products {
     private Integer id;
 
-    /**
-    * 哥哥的名字
-    */
     private String name;
+
+    private Integer num;
+
+    private Integer price;
+
+    private String picture;
 }

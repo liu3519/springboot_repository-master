@@ -7,16 +7,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ArticleTags {
-    /**
-    * 自增id
-    */
+public class Idolinfo {
     private Integer id;
 
-    /**
-    * 文章id
-    */
-    private Integer articleId;
+    private String name;
 
-    private String tag;
+    private String age;
+
+    private String info;
 }

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.spring.springboot.dao.ActivitiesMapper">
+  <resultMap id="BaseResultMap" type="org.spring.springboot.model.Activities">
+    <!--@mbg.generated-->
+    <!--@Table activities-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="picture_name" jdbcType="VARCHAR" property="pictureName" />
+    <result column="picture_path" jdbcType="VARCHAR" property="picturePath" />
+    <result column="picture_uuid" jdbcType="VARCHAR" property="pictureUuid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, city, `location`, `time`, picture_name, picture_path, picture_uuid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from activities
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from activities
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.spring.springboot.model.Activities" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into activities (`name`, city, `location`, 
+      `time`, picture_name, picture_path, 
+      picture_uuid)
+    values (#{name,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, 
+      #{time,jdbcType=TIMESTAMP}, #{pictureName,jdbcType=VARCHAR}, #{picturePath,jdbcType=VARCHAR}, 
+      #{pictureUuid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.spring.springboot.model.Activities" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into activities
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="location != null">
+        `location`,
+      </if>
+      <if test="time != null">
+        `time`,
+      </if>
+      <if test="pictureName != null">
+        picture_name,
+      </if>
+      <if test="picturePath != null">
+        picture_path,
+      </if>
+      <if test="pictureUuid != null">
+        picture_uuid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pictureName != null">
+        #{pictureName,jdbcType=VARCHAR},
+      </if>
+      <if test="picturePath != null">
+        #{picturePath,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureUuid != null">
+        #{pictureUuid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.spring.springboot.model.Activities">
+    <!--@mbg.generated-->
+    update activities
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        `location` = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        `time` = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pictureName != null">
+        picture_name = #{pictureName,jdbcType=VARCHAR},
+      </if>
+      <if test="picturePath != null">
+        picture_path = #{picturePath,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureUuid != null">
+        picture_uuid = #{pictureUuid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.spring.springboot.model.Activities">
+    <!--@mbg.generated-->
+    update activities
+    set `name` = #{name,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      `location` = #{location,jdbcType=VARCHAR},
+      `time` = #{time,jdbcType=TIMESTAMP},
+      picture_name = #{pictureName,jdbcType=VARCHAR},
+      picture_path = #{picturePath,jdbcType=VARCHAR},
+      picture_uuid = #{pictureUuid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

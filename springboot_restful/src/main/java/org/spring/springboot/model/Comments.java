@@ -8,22 +8,21 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Articles {
+public class Comments {
     private Integer id;
 
     private Integer userId;
 
-    private Integer idolId;
+    private String comment;
 
-    private String title;
-
-    private String article;
+    private Integer picOrArtId;
 
     private Date publishTime;
 
-    private Integer isShort;
-
-    private Integer commentNum;
+    /**
+    * 文章为1，图片为2
+    */
+    private Integer type;
 
     private Integer starNum;
 }

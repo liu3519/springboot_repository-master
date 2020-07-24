@@ -7,19 +7,15 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PictureTags {
-    /**
-    * 自增键，不要动哦
-    */
+public class Tags {
     private Integer id;
 
-    /**
-    * 图片id
-    */
-    private Integer pictureId;
+    private String tag;
 
     /**
-    * 标签
+    * 文章1，图片2
     */
-    private String tag;
+    private Integer type;
+
+    private Integer picOrArtId;
 }

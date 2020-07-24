@@ -1,5 +1,6 @@
 package org.spring.springboot.model;
 
+import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,18 +9,32 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Pictures {
-    /**
-    * 自增id，不要动
-    */
     private Integer id;
 
-    /**
-    * name表的ID，标记这张图属于哪个哥哥的
-    */
-    private Integer nameId;
+    private Integer userId;
+
+    private Integer idolId;
+
+    private String title;
 
     /**
-    * 文件路径，会手把手的！
+    * 文件名
     */
-    private String filePath;
+    private String filename;
+
+    /**
+    * 文件路径
+    */
+    private String filepath;
+
+    /**
+    * 唯一标识
+    */
+    private String uuid;
+
+    private Date publishTime;
+
+    private Integer commentNum;
+
+    private Integer starNum;
 }

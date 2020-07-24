@@ -5,12 +5,20 @@
     <!--@mbg.generated-->
     <!--@Table pictures-->
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="name_id" jdbcType="INTEGER" property="nameId" />
-    <result column="file_path" jdbcType="VARCHAR" property="filePath" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="idol_id" jdbcType="INTEGER" property="idolId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="filename" jdbcType="VARCHAR" property="filename" />
+    <result column="filepath" jdbcType="VARCHAR" property="filepath" />
+    <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+    <result column="comment_num" jdbcType="INTEGER" property="commentNum" />
+    <result column="star_num" jdbcType="INTEGER" property="starNum" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, name_id, file_path
+    id, user_id, idol_id, title, filename, filepath, uuid, publish_time, comment_num, 
+    star_num
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -26,26 +34,74 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.spring.springboot.model.Pictures" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into pictures (name_id, file_path)
-    values (#{nameId,jdbcType=INTEGER}, #{filePath,jdbcType=VARCHAR})
+    insert into pictures (user_id, idol_id, title, 
+      filename, filepath, uuid, 
+      publish_time, comment_num, star_num
+      )
+    values (#{userId,jdbcType=INTEGER}, #{idolId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{filename,jdbcType=VARCHAR}, #{filepath,jdbcType=VARCHAR}, #{uuid,jdbcType=VARCHAR}, 
+      #{publishTime,jdbcType=TIMESTAMP}, #{commentNum,jdbcType=INTEGER}, #{starNum,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.spring.springboot.model.Pictures" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into pictures
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="nameId != null">
-        name_id,
+      <if test="userId != null">
+        user_id,
       </if>
-      <if test="filePath != null">
-        file_path,
+      <if test="idolId != null">
+        idol_id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="filename != null">
+        filename,
+      </if>
+      <if test="filepath != null">
+        filepath,
+      </if>
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="publishTime != null">
+        publish_time,
+      </if>
+      <if test="commentNum != null">
+        comment_num,
+      </if>
+      <if test="starNum != null">
+        star_num,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="nameId != null">
-        #{nameId,jdbcType=INTEGER},
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
       </if>
-      <if test="filePath != null">
-        #{filePath,jdbcType=VARCHAR},
+      <if test="idolId != null">
+        #{idolId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="filename != null">
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null">
+        #{filepath,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null">
+        #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commentNum != null">
+        #{commentNum,jdbcType=INTEGER},
+      </if>
+      <if test="starNum != null">
+        #{starNum,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -53,11 +109,32 @@
     <!--@mbg.generated-->
     update pictures
     <set>
-      <if test="nameId != null">
-        name_id = #{nameId,jdbcType=INTEGER},
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
-      <if test="filePath != null">
-        file_path = #{filePath,jdbcType=VARCHAR},
+      <if test="idolId != null">
+        idol_id = #{idolId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="filename != null">
+        filename = #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null">
+        filepath = #{filepath,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null">
+        uuid = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null">
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commentNum != null">
+        comment_num = #{commentNum,jdbcType=INTEGER},
+      </if>
+      <if test="starNum != null">
+        star_num = #{starNum,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -65,8 +142,15 @@
   <update id="updateByPrimaryKey" parameterType="org.spring.springboot.model.Pictures">
     <!--@mbg.generated-->
     update pictures
-    set name_id = #{nameId,jdbcType=INTEGER},
-      file_path = #{filePath,jdbcType=VARCHAR}
+    set user_id = #{userId,jdbcType=INTEGER},
+      idol_id = #{idolId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      filename = #{filename,jdbcType=VARCHAR},
+      filepath = #{filepath,jdbcType=VARCHAR},
+      uuid = #{uuid,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      comment_num = #{commentNum,jdbcType=INTEGER},
+      star_num = #{starNum,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

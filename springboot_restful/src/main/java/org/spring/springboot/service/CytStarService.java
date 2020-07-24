@@ -1,10 +1,31 @@
 package org.spring.springboot.service;
 
-import org.spring.springboot.model.Articles;
-import org.spring.springboot.model.Person;
+import com.sun.org.apache.xpath.internal.operations.Mult;
+import org.spring.springboot.model.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 public interface CytStarService {
-    Articles selectArticlePrimaryKey(Integer id);
+    UserinfoToReturn resignNewUser(Userinfo userinfo);
+
+    String login(Userinfo userinfo);
+
+//    List<Articles> selectArticleByAll(Articles articles);
+//
+//    String publishShortArticle(Articles articles);
+
+//    String publishPicture(PictureUpload pictureUpload, MultipartFile file) throws IOException;
+//
+//    List<Pictures> selectPictureByAll(Pictures pictures) throws IOException;
+//
+//    byte[] getPictureByUUID(String uuid) throws IOException;
+//
+//    List<ArticleTags> selectArticleTagsByArticleId(int id);
+//
+//    List<ArticleComments> selectByArticleId(int id);
+//
+//    String insertSelectiveComment(ArticleComments articleComments);
 }

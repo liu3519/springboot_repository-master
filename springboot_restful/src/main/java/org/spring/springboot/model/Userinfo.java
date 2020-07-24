@@ -7,19 +7,18 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class GoodTags {
-    /**
-    * 自增id，不要动
-    */
+public class Userinfo {
     private Integer id;
 
     /**
-    * 商品id
+    * 用户名（邮箱）
     */
-    private Integer goodId;
+    private String username;
 
     /**
-    * 标签
+    * 昵称
     */
-    private String tag;
+    private String nickname;
+
+    private String password;
 }
