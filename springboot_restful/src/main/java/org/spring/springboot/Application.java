@@ -4,12 +4,14 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @author Administrator
  * @date 2018/04/22
  */
 @SpringBootApplication
+@EnableSwagger2
 @MapperScan("org.spring.springboot.dao")
 public class Application {
 

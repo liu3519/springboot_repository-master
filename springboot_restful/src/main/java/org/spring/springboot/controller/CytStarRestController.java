@@ -1,5 +1,6 @@
 package org.spring.springboot.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.spring.springboot.model.*;
 import org.spring.springboot.service.CytStarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +28,13 @@ public class CytStarRestController {
         this.cytStarService = cytStarService;
     };
 
+    @ApiOperation(value="/resignNewUser",notes="resignNewUser")
     @RequestMapping(value="/resignNewUser",method = RequestMethod.POST)
     public UserinfoToReturn resignNewUser(@RequestBody Userinfo userinfo){
         return cytStarService.resignNewUser(userinfo);
     }
 
+    @ApiOperation(value="/login",notes="login")
     @RequestMapping(value="/login",method = RequestMethod.POST)
     public String login(@RequestBody Userinfo userinfo){
         return cytStarService.login(userinfo);
