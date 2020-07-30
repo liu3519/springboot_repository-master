@@ -36,7 +36,7 @@ public class CytStarRestController {
 
     @ApiOperation(value="/login",notes="login")
     @RequestMapping(value="/login",method = RequestMethod.POST)
-    public String login(@RequestBody Userinfo userinfo){
+    public UserinfoToReturn login(@RequestBody Userinfo userinfo){
         return cytStarService.login(userinfo);
     }
 

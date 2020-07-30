@@ -44,18 +44,21 @@ public class CytStarServiceImpl implements CytStarService {
     }
 
     @Override
-    public String login(Userinfo userinfo){
-        String msg=null;
-        String username=userinfo.getUsername();
-        List<Userinfo> userSelected=userinfoMapper.selectAllByUsername(username);
+    public UserinfoToReturn login(Userinfo userinfo){
+        UserinfoToReturn userinfoToReturn=new UserinfoToReturn();
+        List<Userinfo> userSelected=userinfoMapper.selectAllByUsername(userinfo.getUsername());
         if(userSelected.size()==0)
-            msg="NO USERNAME";
+            userinfoToReturn.setMsg("NO USERNAME");
         else{
-            if(userSelected.get(0).getPassword()==userinfo.getPassword())
-                msg="OK";
-            else msg="PASSWORD ERR";
+            if(userSelected.get(0).getPassword().equals(userinfo.getPassword())){
+                userinfoToReturn.setMsg("OK");
+                userinfoToReturn.setId(userSelected.get(0).getId());
+                userinfoToReturn.setUsername(userSelected.get(0).getUsername());
+                userinfoToReturn.setNickname(userSelected.get(0).getNickname());
+            }
+            else userinfoToReturn.setMsg("PASSWORD ERR");
         }
-        return msg;
+        return userinfoToReturn;
     }
 //    @Autowired
 //    private ArticlesMapper articlesMapper;

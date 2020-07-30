@@ -11,7 +11,7 @@ import java.util.List;
 public interface CytStarService {
     UserinfoToReturn resignNewUser(Userinfo userinfo);
 
-    String login(Userinfo userinfo);
+    UserinfoToReturn login(Userinfo userinfo);
 
 //    List<Articles> selectArticleByAll(Articles articles);
 //
