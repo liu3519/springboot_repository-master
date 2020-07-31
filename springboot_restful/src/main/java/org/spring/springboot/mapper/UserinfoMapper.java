@@ -1,4 +1,4 @@
-package org.spring.springboot.dao;
+package org.spring.springboot.mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 

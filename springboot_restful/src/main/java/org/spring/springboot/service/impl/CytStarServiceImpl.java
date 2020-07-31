@@ -1,40 +1,28 @@
 package org.spring.springboot.service.impl;
 
-import org.apache.tomcat.util.http.fileupload.FileUploadException;
-import org.omg.CORBA.portable.ApplicationException;
-import org.spring.springboot.Application;
-import org.spring.springboot.dao.*;
+import org.spring.springboot.dao.UserInfoDao;
 import org.spring.springboot.model.*;
 import org.spring.springboot.service.CytStarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-import org.apache.commons.io.IOUtils;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 
 @Service
 public class CytStarServiceImpl implements CytStarService {
 
     @Autowired
-    private UserinfoMapper userinfoMapper;
+    private UserInfoDao userInfoDao;
 
     @Override
     public UserinfoToReturn resignNewUser(Userinfo userinfo){
         UserinfoToReturn userinfoToReturn=new UserinfoToReturn();
-        List<Userinfo> userSelected = userinfoMapper.selectAllByUsername(userinfo.getUsername());
+        List<Userinfo> userSelected = userInfoDao.selectAllByUsername(userinfo.getUsername());
         if(userSelected.size()>0)
             userinfoToReturn.setMsg("USERNAME EXIST");
         else{
-            userinfoMapper.insert(userinfo);
-            userSelected = userinfoMapper.selectAllByUsername(userinfo.getUsername());
+            userInfoDao.insert(userinfo);
+            userSelected = userInfoDao.selectAllByUsername(userinfo.getUsername());
             userinfoToReturn.setId(userSelected.get(0).getId());
             userinfoToReturn.setUsername(userSelected.get(0).getUsername());
             userinfoToReturn.setNickname(userSelected.get(0).getNickname());
@@ -46,7 +34,7 @@ public class CytStarServiceImpl implements CytStarService {
     @Override
     public UserinfoToReturn login(Userinfo userinfo){
         UserinfoToReturn userinfoToReturn=new UserinfoToReturn();
-        List<Userinfo> userSelected=userinfoMapper.selectAllByUsername(userinfo.getUsername());
+        List<Userinfo> userSelected= userInfoDao.selectAllByUsername(userinfo.getUsername());
         if(userSelected.size()==0)
             userinfoToReturn.setMsg("NO USERNAME");
         else{
